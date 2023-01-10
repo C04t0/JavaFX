@@ -57,7 +57,7 @@ public class SandboxBindings {
 
         DoubleBinding volumeBinding = new DoubleBinding() {
             {
-                super.bind(radius);     //bevat geen eigen bind()-methode dus haal je ze uit NumberBinding.
+                super.bind(radius);     //bevat geen eigen bind()-methode dus haal je ze uit parent NumberBinding.
             }
             @Override
             protected double computeValue() {

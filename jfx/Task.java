@@ -1,22 +1,37 @@
 package jfx;
 
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class Task {
 
     private StringProperty priority = new SimpleStringProperty();
     private StringProperty description = new SimpleStringProperty();
-    private ObjectProperty<Integer> progress = new SimpleObjectProperty<>();
+    private ObjectProperty<Integer> progress = new SimpleObjectProperty<>(0);
+    private final ObjectProperty<Integer> id = new SimpleObjectProperty<>();
 
+    public Task() {
 
+    }
 
-
+    public Task(Integer id, String description, String priority, Integer progress) {
+        this.id.set(id);
+        this.description.set(description);
+        this.priority.set(priority);
+        this.progress.set(progress);
+    }
 
     //Getters en setters
+
+    public Integer getId() {
+        return id.get();
+    }
+    public ObjectProperty<Integer> idProperty() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id.set(id);
+    }
 
     public String getPriority() {
         return priority.get();
